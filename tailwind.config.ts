@@ -64,6 +64,8 @@ export default {
       },
       backgroundImage: {
         pattern: "url('/images/pattern.webp')",
+        desktop: "url('/images/background.webp')",
+        mobile: "url('/images/background-mobile.webp')",
       },
     },
   },

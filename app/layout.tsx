@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Webepas',
-    template: '%s - Webepas',
+    default: 'WEBEPAS',
+    template: '%s - WEBEPAS',
   },
   description: 'Web pembelajaran IPAS',
   category: 'course',

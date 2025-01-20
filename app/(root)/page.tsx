@@ -16,7 +16,7 @@ export default function Home() {
     // Redirect setelah 10 detik
     const timer = setTimeout(() => {
       router.push('/home');
-    }, 10000);
+    }, 7000);
 
     // Membersihkan timer saat komponen di-unmount
     return () => clearTimeout(timer);

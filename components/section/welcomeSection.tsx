@@ -54,7 +54,7 @@ const WelcomeSection = () => {
           <Image src="/icon/logo.png" alt="Logo" width={180} height={180} />
         </motion.div>
         <motion.div className="flex flex-col md:flex-row items-center gap-4" variants={containerVariants} initial="hidden" animate="visible">
-          {welcomeImages.map((img, index) => (
+          {welcomeImages.map((img) => (
             <motion.div
               key={img.src}
               variants={itemVariants}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ButtonNextPrev } from '../button-next-prev';
+import { ButtonNextPrev } from '@/components/button-next-prev';
 
 const DescriptionSection = () => {
   const [currentStep, setCurrentStep] = useState(1);

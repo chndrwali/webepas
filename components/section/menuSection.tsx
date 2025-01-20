@@ -94,7 +94,7 @@ const MenuSection = () => {
         <div className="flex ml-[250px]">
           <motion.div custom={1} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] z-10">
             <Link href="/menu/relevant">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
                 <Image src="/icon/logo.png" alt="{item.title}" width={150} height={50} className="mb-8" />
                 <Image src="/icon/relevant-text.png" alt="{item.title}" width={80} height={50} className="fixed bottom-24" />
               </div>
@@ -102,7 +102,7 @@ const MenuSection = () => {
           </motion.div>
           <motion.div custom={2} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] z-10">
             <Link href="/menu/material">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
                 <Image src="/icon/materi.png" alt="{item.title}" width={120} height={50} className="mb-8" />
                 <Image src="/icon/materi-text.png" alt="{item.title}" width={80} height={50} className="fixed bottom-24" />
               </div>
@@ -110,7 +110,7 @@ const MenuSection = () => {
           </motion.div>
           <motion.div custom={3} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
             <Link href="/menu/game">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
                 <Image src="/icon/game-image.png" alt="{item.title}" width={100} height={50} className="mb-8" />
                 <Image src="/icon/game-text.png" alt="{item.title}" width={80} height={50} className="fixed bottom-16" />
               </div>
@@ -118,7 +118,7 @@ const MenuSection = () => {
           </motion.div>
           <motion.div custom={4} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
             <Link href="/menu/quiz">
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center hover:scale-105 transition-transform duration-300">
                 <Image src="/icon/quiz-image.png" alt="{item.title}" width={100} height={50} className="mb-4" />
                 <Image src="/icon/quiz-text.png" alt="{item.title}" width={80} height={50} className="fixed bottom-20" />
               </div>

@@ -4,6 +4,7 @@ import CrosswordPuzzle from '@/components/crosswordPuzzle';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { ButtonNextPrev } from '../button-next-prev';
+import Image from 'next/image';
 
 const CrosswordSection = () => {
   const router = useRouter();
@@ -58,7 +59,19 @@ const CrosswordSection = () => {
           </div>
         </div>
       </div>
-      <ButtonNextPrev onClick={() => router.push('/menu/game/crosswords')} />
+      <div className="fixed bottom-0 right-4 flex items-center gap-4">
+        <motion.div
+          initial={{ x: 300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1,
+            delay: 1.1,
+          }}
+        >
+          <Image src="/icon/zizah-tts.png" alt="" width={250} height={100} className="mb-8 hidden md:block" />
+        </motion.div>
+      </div>
+      <ButtonNextPrev onClick={() => router.push('/menu/game/wordsearch')} />
     </>
   );
 };

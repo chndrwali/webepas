@@ -22,7 +22,7 @@ const MusicSection = () => {
     audio1Ref.current = new Audio();
     audio2Ref.current = new Audio();
 
-    // Set sources
+    // TODO: Change Music
     if (audio1Ref.current) audio1Ref.current.src = '/music/bermuara.mp3';
     if (audio2Ref.current) audio2Ref.current.src = '/music/juicy.mp3';
 
@@ -118,12 +118,12 @@ const MusicSection = () => {
 
   return (
     <>
-      {/* Add actual audio elements to the DOM */}
+      {/* TODO: Change music*/}
       <audio id="audio1" ref={audio1Ref} preload="auto">
         <source src="/music/bermuara.mp3" type="audio/mpeg" />
       </audio>
       <audio id="audio2" ref={audio2Ref} preload="auto">
-        <source src="/music/bermua.mp3" type="audio/mpeg" />
+        <source src="/music/juicy.mp3" type="audio/mpeg" />
       </audio>
 
       {currentStep === 1 && (
@@ -267,7 +267,18 @@ const MusicSection = () => {
                 {renderAudioControls(2)}
               </div>
             </motion.div>
-            <motion.button className="flex items-center justify-center -mt-4 z-10" onClick={handleNext}>
+            <motion.button
+              className="flex items-center justify-center -mt-4 z-10"
+              whileHover={{
+                scale: 1.1,
+                transition: { duration: 0.2 },
+              }}
+              whileTap={{
+                scale: 0.95,
+                transition: { duration: 0.1 },
+              }}
+              onClick={handleNext}
+            >
               <Image src="/icon/home.png" alt="" width={60} height={50} />
             </motion.button>
           </div>

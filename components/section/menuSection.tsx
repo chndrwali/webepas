@@ -92,7 +92,7 @@ const MenuSection = () => {
       </div>
       <div className="hidden md:flex md:fixed md:bottom-0 flex-col">
         <div className="flex ml-[250px]">
-          <motion.div custom={1} variants={carVariants} initial="hidden" animate="visible" whileHover={{ y: -10 }} className="flex items-center justify-center -mb-[180px] z-10">
+          <motion.div custom={1} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] z-10">
             <Link href="/menu/relevant">
               <div className="flex flex-col items-center">
                 <Image src="/icon/logo.png" alt="{item.title}" width={150} height={50} className="mb-8" />
@@ -100,7 +100,7 @@ const MenuSection = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div custom={2} variants={carVariants} initial="hidden" animate="visible" whileHover={{ y: -10 }} className="flex items-center justify-center -mb-[180px] z-10">
+          <motion.div custom={2} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] z-10">
             <Link href="/menu/material">
               <div className="flex flex-col items-center">
                 <Image src="/icon/materi.png" alt="{item.title}" width={120} height={50} className="mb-8" />
@@ -108,7 +108,7 @@ const MenuSection = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div custom={3} variants={carVariants} initial="hidden" animate="visible" whileHover={{ y: -10 }} className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
+          <motion.div custom={3} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
             <Link href="/menu/game">
               <div className="flex flex-col items-center">
                 <Image src="/icon/game-image.png" alt="{item.title}" width={100} height={50} className="mb-8" />
@@ -116,7 +116,7 @@ const MenuSection = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div custom={4} variants={carVariants} initial="hidden" animate="visible" whileHover={{ y: -10 }} className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
+          <motion.div custom={4} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10">
             <Link href="/menu/quiz">
               <div className="flex flex-col items-center">
                 <Image src="/icon/quiz-image.png" alt="{item.title}" width={100} height={50} className="mb-4" />

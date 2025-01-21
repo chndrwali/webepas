@@ -66,6 +66,8 @@ export default {
         pattern: "url('/images/pattern.webp')",
         desktop: "url('/images/background.webp')",
         mobile: "url('/images/background-mobile.webp')",
+        desktop_cair: "url('/materi/cair/background.png')",
+        mobile_cair: "url('/materi/cair/background-mobile.png')",
       },
     },
   },

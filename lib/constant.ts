@@ -1,3 +1,5 @@
+import type { Item, Basket } from '@/types';
+
 export const quizQuestions = [
   {
     question: 'Sifat-sifat benda padat adalah sebagai berikut, kecuali...',
@@ -159,4 +161,37 @@ export const quizQuestions = [
     optionD: 'Mencair',
     correctAnswer: 'C',
   },
+];
+
+export const items: Item[] = [
+  { id: '1', name: 'Kursi', imageUrl: '/basket/kursi.png', type: 'PADAT' },
+  { id: '2', name: 'Air', imageUrl: '/basket/air.png', type: 'CAIR' },
+  { id: '3', name: 'Balon', imageUrl: '/basket/balon.png', type: 'GAS' },
+  { id: '4', name: 'Buku', imageUrl: '/basket/buku.png', type: 'PADAT' },
+  { id: '10', name: 'Gas', imageUrl: '/basket/gas.png', type: 'GAS' },
+  { id: '5', name: 'Susu', imageUrl: '/basket/susu.png', type: 'CAIR' },
+  { id: '6', name: 'Asap', imageUrl: '/basket/uap.png', type: 'GAS' },
+  { id: '13', name: 'Saus', imageUrl: '/basket/saus.png', type: 'CAIR' },
+  { id: '7', name: 'Penggaris', imageUrl: '/basket/penggaris.png', type: 'PADAT' },
+  { id: '9', name: 'Uap', imageUrl: '/basket/awan.png', type: 'GAS' },
+  { id: '8', name: 'Minyak', imageUrl: '/basket/minyak.png', type: 'CAIR' },
+  { id: '22', name: 'Lampu', imageUrl: '/basket/lampu.png', type: 'PADAT' },
+  { id: '11', name: 'Udara', imageUrl: '/basket/udara.png', type: 'GAS' },
+  { id: '12', name: 'Kecap', imageUrl: '/basket/kecap.png', type: 'CAIR' },
+  { id: '21', name: 'Keju', imageUrl: '/basket/keju.png', type: 'PADAT' },
+  { id: '14', name: 'Sabun', imageUrl: '/basket/sabun.png', type: 'CAIR' },
+  { id: '19', name: 'Kelereng', imageUrl: '/basket/kelereng.png', type: 'PADAT' },
+  { id: '16', name: 'Selai', imageUrl: '/basket/selai.png', type: 'CAIR' },
+  { id: '18', name: 'Baju', imageUrl: '/basket/baju.png', type: 'PADAT' },
+  { id: '23', name: 'Sabun batang', imageUrl: '/basket/daging.png', type: 'PADAT' },
+  { id: '17', name: 'Jus', imageUrl: '/basket/jus.png', type: 'CAIR' },
+  { id: '20', name: 'Penghapus', imageUrl: '/basket/penghapus.png', type: 'PADAT' },
+  { id: '15', name: 'Oli', imageUrl: '/basket/oli.png', type: 'CAIR' },
+  { id: '24', name: 'Figura', imageUrl: '/basket/figura.png', type: 'PADAT' },
+];
+
+export const baskets: Basket[] = [
+  { id: 'basket-1', type: 'PADAT', label: 'Padat', items: [] },
+  { id: 'basket-2', type: 'CAIR', label: 'Cair', items: [] },
+  { id: 'basket-3', type: 'GAS', label: 'Gas', items: [] },
 ];

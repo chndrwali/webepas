@@ -17,3 +17,17 @@ declare module 'next-auth' {
     user: ExtendedUser;
   }
 }
+
+export interface Item {
+  id: string;
+  name: string;
+  imageUrl: string;
+  type: 'PADAT' | 'CAIR' | 'GAS';
+}
+
+export interface Basket {
+  id: string;
+  type: 'PADAT' | 'CAIR' | 'GAS';
+  label: string;
+  items: Item[];
+}

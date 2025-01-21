@@ -3,7 +3,7 @@
 import CrosswordPuzzle from '@/components/crosswordPuzzle';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { ButtonNextPrev } from '../button-next-prev';
+import { ButtonNextPrev } from '@/components/button-next-prev';
 import Image from 'next/image';
 
 const CrosswordSection = () => {

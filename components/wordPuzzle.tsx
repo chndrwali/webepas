@@ -211,7 +211,7 @@ const WordSearchPuzzle = () => {
           </div>
         </div>
       </div>
-      <ButtonNextPrev onClick={() => router.push('/menu/game/')} />
+      <ButtonNextPrev onClick={() => router.push('/menu/game/baskets')} />
     </div>
   );
 };

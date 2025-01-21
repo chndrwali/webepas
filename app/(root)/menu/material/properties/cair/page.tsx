@@ -1,3 +1,4 @@
+import MenuCairSection from '@/components/section/menuCairSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return <></>;
+  return <MenuCairSection />;
 };
 
 export default Page;

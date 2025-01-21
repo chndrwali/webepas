@@ -8,9 +8,9 @@ import { useRouter } from 'next/navigation';
 const MenuPadatSection = () => {
   const router = useRouter();
   const materialImages = [
-    { src: '/sifat/button-desc-padat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/padat' },
-    { src: '/sifat/button-wujud-padat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/cair' },
-    { src: '/sifat/button-example-padat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/gas' },
+    { src: '/sifat/button-desc-padat.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/padat' },
+    { src: '/sifat/button-wujud-padat.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/padat/wujud' },
+    { src: '/sifat/button-example-padat.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/padat/contoh' },
   ];
 
   const containerVariants = {
@@ -89,7 +89,7 @@ const MenuPadatSection = () => {
           }}
         >
           <motion.button
-            onClick={() => router.push('/menu')}
+            onClick={() => router.back()}
             whileHover={{
               scale: 1.1,
               transition: { duration: 0.2 },

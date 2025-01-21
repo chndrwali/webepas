@@ -1,3 +1,4 @@
+import MenuPerubahanSection from '@/components/section/menuPerubahanSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return <></>;
+  return <MenuPerubahanSection />;
 };
 
 export default Page;

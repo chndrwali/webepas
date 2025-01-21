@@ -15,7 +15,7 @@ const VideoSection = () => {
     if (currentStep < totalSteps) {
       setCurrentStep((prevStep) => prevStep + 1);
     } else {
-      router.push('/menu');
+      router.push('/menu/material');
     }
   };
 

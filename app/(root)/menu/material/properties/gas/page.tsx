@@ -1,3 +1,4 @@
+import MenuGasSection from '@/components/section/menuGasSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return <></>;
+  return <MenuGasSection />;
 };
 
 export default Page;

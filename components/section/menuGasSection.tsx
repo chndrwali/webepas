@@ -5,12 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const MenuPropertySection = () => {
+const MenuGasSection = () => {
   const router = useRouter();
   const materialImages = [
-    { src: '/sifat/button-padat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/padat' },
-    { src: '/sifat/button-cair.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/cair' },
-    { src: '/sifat/button-gas.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/gas' },
+    { src: '/sifat/button-desc-gas.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/gas' },
+    { src: '/sifat/button-wujud-gas.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/gas/sifat' },
+    { src: '/sifat/button-example-gas.png', alt: 'welcome', width: 200, height: 100, href: '/material/sifat/gas/contoh' },
   ];
 
   const containerVariants = {
@@ -50,7 +50,7 @@ const MenuPropertySection = () => {
             bounce: 0.5,
           }}
         >
-          <Image src="/sifat/title-property.png" alt="" width={300} height={200} />
+          <Image src="/sifat/title-gas.png" alt="" width={300} height={200} />
         </motion.div>
         <motion.div
           initial={{ y: -100, opacity: 0 }}
@@ -61,7 +61,7 @@ const MenuPropertySection = () => {
             bounce: 0.5,
           }}
         >
-          <Image src="/sifat/ngapung.png" alt="" width={200} height={150} className="-mt-4" />
+          <Image src="/sifat/main-gas.png" alt="" width={200} height={150} className="-mt-4" />
         </motion.div>
         <motion.div className="grid grid-cols-2 md:grid-cols-3 items-center gap-4" variants={containerVariants} initial="hidden" animate="visible">
           {materialImages.map((img) => (
@@ -107,4 +107,4 @@ const MenuPropertySection = () => {
   );
 };
 
-export default MenuPropertySection;
+export default MenuGasSection;

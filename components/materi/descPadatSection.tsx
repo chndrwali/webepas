@@ -54,7 +54,7 @@ const DescPadatSection = () => {
               delay: 1.1,
             }}
           >
-            <Image src="/materi/padat/zizah-1.png" alt="" width={250} height={100} className="mb-8" />
+            <Image src="/materi/padat/zizah-1.png" alt="" width={200} height={100} className="mb-0 md:mb-8" />
           </motion.div>
         </div>
         <motion.div

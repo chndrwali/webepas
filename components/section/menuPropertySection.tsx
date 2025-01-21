@@ -5,13 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const MaterialSection = () => {
+const MenuPropertySection = () => {
   const router = useRouter();
   const materialImages = [
-    { src: '/icon/button-music.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/music' },
-    { src: '/icon/button-sifat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties' },
-    { src: '/icon/button-wujud.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/solid' },
-    { src: '/icon/button-video.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/video' },
+    { src: '/sifat/button-padat.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/padat' },
+    { src: '/sifat/button-cair.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/cair' },
+    { src: '/sifat/button-gas.png', alt: 'welcome', width: 200, height: 100, href: '/menu/material/properties/gas' },
   ];
 
   const containerVariants = {
@@ -19,7 +18,7 @@ const MaterialSection = () => {
     visible: {
       transition: {
         staggerChildren: 0.3,
-        delayChildren: 1.5, // Start after logo animation
+        delayChildren: 1.5,
       },
     },
   };
@@ -41,7 +40,7 @@ const MaterialSection = () => {
   };
   return (
     <>
-      <div className="flex flex-col items-center justify-center space-y-8">
+      <div className="flex flex-col items-center justify-center">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -51,9 +50,20 @@ const MaterialSection = () => {
             bounce: 0.5,
           }}
         >
-          <Image src="/icon/title-materi.png" alt="" width={300} height={200} />
+          <Image src="/sifat/title-property.png" alt="" width={300} height={200} />
         </motion.div>
-        <motion.div className="grid grid-cols-2 md:grid-cols-4 items-center gap-4" variants={containerVariants} initial="hidden" animate="visible">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 4,
+            type: 'spring',
+            bounce: 0.5,
+          }}
+        >
+          <Image src="/sifat/ngapung.png" alt="" width={200} height={150} className="-mt-4" />
+        </motion.div>
+        <motion.div className="grid grid-cols-2 md:grid-cols-3 items-center gap-4" variants={containerVariants} initial="hidden" animate="visible">
           {materialImages.map((img) => (
             <Link href={img.href} key={img.src}>
               <motion.div
@@ -97,4 +107,4 @@ const MaterialSection = () => {
   );
 };
 
-export default MaterialSection;
+export default MenuPropertySection;

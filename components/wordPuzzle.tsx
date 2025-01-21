@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { ButtonNextPrev } from './button-next-prev';
+import { useRouter } from 'next/navigation';
 
 const words = [
   'SAUS',
@@ -22,7 +24,7 @@ const words = [
   'PADAT',
   'MENGKRISTAL',
   'KAYU',
-  'BUKU',
+  'LILIN',
   'KURSI',
   'AIR',
   'UDARA',
@@ -32,6 +34,7 @@ const words = [
   'KOPI',
   'MEJA',
   'MENCAIR',
+  'MENYUBLIM',
 ];
 
 const grid = [
@@ -47,7 +50,7 @@ const grid = [
   ['F', 'M', 'A', 'J', 'I', 'Z', 'Y', 'Z', 'L', 'O', 'I', 'O', 'B', 'A', 'N'],
   ['R', 'U', 'P', 'A', 'R', 'U', 'G', 'I', 'P', 'N', 'P', 'U', 'Z', 'U', 'P'],
   ['K', 'T', 'C', 'M', 'R', 'E', 'M', 'U', 'L', 'O', 'V', 'E', 'D', 'R', 'U'],
-  ['L', 'A', 'T', 'S', 'I', 'R', 'K', 'G', 'N', 'E', 'G', 'A', 'D', 'X', 'M'],
+  ['L', 'A', 'T', 'S', 'I', 'R', 'K', 'G', 'N', 'E', 'M', 'A', 'D', 'X', 'M'],
   ['V', 'A', 'Y', 'J', 'H', 'U', 'G', 'Q', 'R', 'B', 'R', 'R', 'I', 'A', 'P'],
   ['O', 'E', 'Z', 'U', 'B', 'F', 'D', 'V', 'G', 'A', 'I', 'S', 'R', 'U', 'K'],
 ];
@@ -58,7 +61,13 @@ type Cell = {
   isPartOfWord: boolean;
 };
 
+type Line = {
+  start: { row: number; col: number };
+  end: { row: number; col: number };
+};
+
 const WordSearchPuzzle = () => {
+  const router = useRouter();
   const [puzzle, setPuzzle] = useState<Cell[][]>(() =>
     grid.map((row) =>
       row.map((letter) => ({
@@ -71,6 +80,7 @@ const WordSearchPuzzle = () => {
   const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const [startCell, setStartCell] = useState<{ row: number; col: number } | null>(null);
   const [currentSelection, setCurrentSelection] = useState<{ row: number; col: number }[]>([]);
+  const [foundLines, setFoundLines] = useState<Line[]>([]);
 
   const handleCellMouseDown = (row: number, col: number) => {
     setStartCell({ row, col });
@@ -122,6 +132,13 @@ const WordSearchPuzzle = () => {
         newPuzzle[row][col].isPartOfWord = true;
       });
       setPuzzle(newPuzzle);
+      setFoundLines([
+        ...foundLines,
+        {
+          start: currentSelection[0],
+          end: currentSelection[currentSelection.length - 1],
+        },
+      ]);
     } else {
       const newPuzzle = puzzle.map((row) => row.map((cell) => ({ ...cell, selected: false })));
       setPuzzle(newPuzzle);
@@ -137,33 +154,48 @@ const WordSearchPuzzle = () => {
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Silang Kata</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div
-            className="grid gap-0.5 select-none"
-            style={{ gridTemplateColumns: `repeat(${grid[0].length}, minmax(0, 1fr))` }}
-            onMouseLeave={() => {
-              if (startCell) {
-                const newPuzzle = puzzle.map((row) => row.map((cell) => ({ ...cell, selected: false })));
-                setPuzzle(newPuzzle);
-                setStartCell(null);
-                setCurrentSelection([]);
-              }
-            }}
-          >
-            {puzzle.map((row, rowIndex) =>
-              row.map((cell, colIndex) => (
-                <div
-                  key={`${rowIndex}-${colIndex}`}
-                  className={`aspect-square flex items-center justify-center text-sm font-bold cursor-pointer select-none ${cell.isPartOfWord ? 'bg-green-200' : cell.selected ? 'bg-blue-200' : 'bg-gray-50'} ${
-                    cell.isPartOfWord ? 'text-green-800' : 'text-gray-800'
-                  } transition-colors duration-150`}
-                  onMouseDown={() => handleCellMouseDown(rowIndex, colIndex)}
-                  onMouseEnter={() => handleCellMouseEnter(rowIndex, colIndex)}
-                  onMouseUp={handleCellMouseUp}
-                >
-                  {cell.letter}
-                </div>
-              ))
-            )}
+          <div className="relative">
+            <div
+              className="grid gap-0.5 select-none"
+              style={{ gridTemplateColumns: `repeat(${grid[0].length}, minmax(0, 1fr))` }}
+              onMouseLeave={() => {
+                if (startCell) {
+                  const newPuzzle = puzzle.map((row) => row.map((cell) => ({ ...cell, selected: false })));
+                  setPuzzle(newPuzzle);
+                  setStartCell(null);
+                  setCurrentSelection([]);
+                }
+              }}
+            >
+              {puzzle.map((row, rowIndex) =>
+                row.map((cell, colIndex) => (
+                  <div
+                    key={`${rowIndex}-${colIndex}`}
+                    className={`aspect-square flex items-center justify-center text-sm font-bold cursor-pointer select-none ${cell.isPartOfWord ? 'bg-green-200' : cell.selected ? 'bg-blue-200' : 'bg-gray-50'} ${
+                      cell.isPartOfWord ? 'text-green-800' : 'text-gray-800'
+                    } transition-colors duration-150`}
+                    onMouseDown={() => handleCellMouseDown(rowIndex, colIndex)}
+                    onMouseEnter={() => handleCellMouseEnter(rowIndex, colIndex)}
+                    onMouseUp={handleCellMouseUp}
+                  >
+                    {cell.letter}
+                  </div>
+                ))
+              )}
+            </div>
+            <svg className="absolute inset-0 pointer-events-none" style={{ width: '100%', height: '100%' }}>
+              {foundLines.map((line, index) => {
+                const cellWidth = 100 / grid[0].length;
+                const cellHeight = 100 / grid.length;
+
+                const x1 = (line.start.col + 0.5) * cellWidth;
+                const y1 = (line.start.row + 0.5) * cellHeight;
+                const x2 = (line.end.col + 0.5) * cellWidth;
+                const y2 = (line.end.row + 0.5) * cellHeight;
+
+                return <line key={index} x1={`${x1}%`} y1={`${y1}%`} x2={`${x2}%`} y2={`${y2}%`} stroke="black" strokeWidth="2" strokeLinecap="round" opacity="0.5" />;
+              })}
+            </svg>
           </div>
 
           <div className="bg-gray-50 p-4 rounded-lg">
@@ -179,6 +211,7 @@ const WordSearchPuzzle = () => {
           </div>
         </div>
       </div>
+      <ButtonNextPrev onClick={() => router.push('/menu/game/')} />
     </div>
   );
 };

@@ -75,17 +75,4 @@ body {
   .gradient-vertical {
     background: linear-gradient(180deg, #12141d 0%, #12151f 100%);
   }
-  .diagonal-line {
-    position: relative;
-  }
-
-  .diagonal-line::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-bottom: 4px solid green;
-    transform: rotate(-45deg);
-    transform-origin: center;
-  }
 }

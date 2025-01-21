@@ -1,59 +1,55 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
 
 const words = [
-  'RADIAL',
-  'CAIR',
-  'MELELEH',
-  'MENCAIR',
-  'MENYUBLIM',
-  'MENGKRISTAL',
-  'DEPOSISI',
-  'MENGEMBUUN',
-  'UAP',
-  'ASAP',
-  'UDARA',
-  'AIR',
-  'GAS',
-  'MINYAK',
-  'BUKU',
-  'PENSIL',
-  'KAYU',
-  'MADU',
-  'MEJA',
-  'KURSI',
-  'TAS',
-  'LAMPU',
-  'KOPI',
   'SAUS',
-  'SUSU',
-  'BALON',
-  'LILIN',
-  'PIGURA',
-  'PARTIKEL',
+  'MADU',
+  'LAMPU',
+  'MINYAK',
+  'MENCAIR',
+  'MEMBEKU',
+  'MENGUAP',
+  'MENGEMBUN',
+  'ASAP',
+  'GAS',
+  'TAS',
   'MASSA',
   'ZAT',
+  'SUSU',
+  'PENSIL',
+  'PIGURA',
+  'PADAT',
+  'MENGKRISTAL',
+  'KAYU',
+  'BUKU',
+  'KURSI',
+  'AIR',
+  'UDARA',
   'VOLUME',
+  'UAP',
+  'BALON',
+  'KOPI',
+  'MEJA',
+  'MENCAIR',
 ];
 
 const grid = [
-  ['A', 'M', 'S', 'M', 'E', 'N', 'G', 'E', 'M', 'B', 'U', 'U', 'N', 'Y', 'Y'],
-  ['S', 'E', 'N', 'S', 'I', 'T', 'I', 'F', 'I', 'T', 'A', 'S', 'G', 'A', 'S'],
-  ['A', 'N', 'U', 'A', 'R', 'G', 'U', 'N', 'A', 'K', 'A', 'N', 'G', 'A', 'S'],
-  ['P', 'Y', 'P', 'R', 'T', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
-  ['M', 'U', 'A', 'T', 'I', 'K', 'E', 'L', 'P', 'A', 'R', 'T', 'I', 'K', 'E'],
-  ['E', 'B', 'R', 'I', 'K', 'L', 'M', 'N', 'O', 'P', 'T', 'R', 'S', 'T', 'U'],
-  ['N', 'L', 'T', 'K', 'E', 'L', 'A', 'M', 'P', 'U', 'I', 'K', 'E', 'L', 'V'],
-  ['G', 'I', 'I', 'E', 'L', 'M', 'N', 'O', 'P', 'Q', 'K', 'S', 'T', 'U', 'O'],
-  ['E', 'M', 'K', 'L', 'M', 'E', 'N', 'Y', 'U', 'B', 'E', 'L', 'I', 'M', 'L'],
-  ['M', 'M', 'E', 'N', 'G', 'K', 'R', 'I', 'S', 'T', 'A', 'L', 'P', 'E', 'U'],
-  ['B', 'A', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'M'],
-  ['U', 'S', 'P', 'E', 'N', 'S', 'I', 'L', 'T', 'A', 'S', 'V', 'W', 'X', 'E'],
-  ['U', 'S', 'A', 'U', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C'],
-  ['N', 'A', 'R', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D', 'E'],
-  ['P', 'A', 'D', 'A', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A', 'B', 'C', 'D'],
+  ['A', 'M', 'S', 'M', 'E', 'N', 'G', 'E', 'M', 'B', 'U', 'N', 'M', 'Y', 'Y'],
+  ['G', 'S', 'E', 'U', 'D', 'S', 'T', 'A', 'E', 'K', 'U', 'S', 'A', 'U', 'S'],
+  ['P', 'F', 'S', 'M', 'S', 'L', 'A', 'P', 'N', 'A', 'P', 'D', 'D', 'T', 'W'],
+  ['A', 'A', 'S', 'A', 'B', 'U', 'Z', 'T', 'C', 'Y', 'M', 'E', 'U', 'W', 'M'],
+  ['U', 'S', 'N', 'A', 'M', 'E', 'L', 'F', 'A', 'N', 'A', 'S', 'M', 'E', 'I'],
+  ['G', 'A', 'O', 'H', 'G', 'I', 'K', 'M', 'I', 'I', 'L', 'E', 'N', 'P', 'B'],
+  ['N', 'P', 'T', 'Y', 'E', 'T', 'S', 'U', 'R', 'M', 'J', 'Y', 'O', 'L', 'A'],
+  ['E', 'H', 'A', 'P', 'E', 'N', 'S', 'I', 'L', 'A', 'U', 'K', 'I', 'C', 'L'],
+  ['M', 'N', 'D', 'C', 'D', 'R', 'G', 'A', 'S', 'B', 'N', 'L', 'U', 'M', 'O'],
+  ['F', 'M', 'A', 'J', 'I', 'Z', 'Y', 'Z', 'L', 'O', 'I', 'O', 'B', 'A', 'N'],
+  ['R', 'U', 'P', 'A', 'R', 'U', 'G', 'I', 'P', 'N', 'P', 'U', 'Z', 'U', 'P'],
+  ['K', 'T', 'C', 'M', 'R', 'E', 'M', 'U', 'L', 'O', 'V', 'E', 'D', 'R', 'U'],
+  ['L', 'A', 'T', 'S', 'I', 'R', 'K', 'G', 'N', 'E', 'G', 'A', 'D', 'X', 'M'],
+  ['V', 'A', 'Y', 'J', 'H', 'U', 'G', 'Q', 'R', 'B', 'R', 'R', 'I', 'A', 'P'],
+  ['O', 'E', 'Z', 'U', 'B', 'F', 'D', 'V', 'G', 'A', 'I', 'S', 'R', 'U', 'K'],
 ];
 
 type Cell = {
@@ -137,8 +133,8 @@ const WordSearchPuzzle = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-4">
-      <div className="bg-white rounded-xl shadow-lg p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">Jawaban Silang Kata</h1>
+      <div className=" rounded-xl shadow-lg p-6">
+        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Silang Kata</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div

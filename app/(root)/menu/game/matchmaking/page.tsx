@@ -1,3 +1,4 @@
+import MatchMakingSection from '@/components/section/matchmakingSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -5,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
-  return <></>;
+  return <MatchMakingSection />;
 };
 
 export default Page;

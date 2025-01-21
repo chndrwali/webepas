@@ -31,3 +31,17 @@ export interface Basket {
   label: string;
   items: Item[];
 }
+
+export interface Process {
+  name: string;
+  image: string;
+}
+
+export interface FeedbackState {
+  show: boolean;
+  correct: boolean;
+}
+
+export interface MatchedPairs {
+  [key: string]: boolean;
+}

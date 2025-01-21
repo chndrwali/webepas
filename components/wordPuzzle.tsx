@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { ButtonNextPrev } from './button-next-prev';
 import { useRouter } from 'next/navigation';
+import { gameSounds } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 const words = [
   'SAUS',
@@ -125,6 +127,7 @@ const WordSearchPuzzle = () => {
     const foundWord = words.find((word) => word === selectedWord || word === selectedWord.split('').reverse().join(''));
 
     if (foundWord && !selectedWords.includes(foundWord)) {
+      gameSounds?.playCorrect();
       setSelectedWords([...selectedWords, foundWord]);
 
       const newPuzzle = puzzle.map((row) => row.map((cell) => ({ ...cell, selected: false })));
@@ -140,6 +143,7 @@ const WordSearchPuzzle = () => {
         },
       ]);
     } else {
+      gameSounds?.playWrong();
       const newPuzzle = puzzle.map((row) => row.map((cell) => ({ ...cell, selected: false })));
       setPuzzle(newPuzzle);
     }
@@ -151,11 +155,22 @@ const WordSearchPuzzle = () => {
   return (
     <div className="max-w-5xl mx-auto p-4">
       <div className=" rounded-xl shadow-lg p-6">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Silang Kata</h1>
+        <motion.h1
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 1.2,
+            type: 'spring',
+            bounce: 0.5,
+          }}
+          className="text-3xl font-bold text-gray-800 mb-6 text-center"
+        >
+          Silang Kata
+        </motion.h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="relative">
-            <div
+            <motion.div
               className="grid gap-0.5 select-none"
               style={{ gridTemplateColumns: `repeat(${grid[0].length}, minmax(0, 1fr))` }}
               onMouseLeave={() => {
@@ -165,6 +180,13 @@ const WordSearchPuzzle = () => {
                   setStartCell(null);
                   setCurrentSelection([]);
                 }
+              }}
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1.2,
+                type: 'spring',
+                bounce: 0.5,
               }}
             >
               {puzzle.map((row, rowIndex) =>
@@ -182,7 +204,7 @@ const WordSearchPuzzle = () => {
                   </div>
                 ))
               )}
-            </div>
+            </motion.div>
             <svg className="absolute inset-0 pointer-events-none" style={{ width: '100%', height: '100%' }}>
               {foundLines.map((line, index) => {
                 const cellWidth = 100 / grid[0].length;
@@ -198,7 +220,16 @@ const WordSearchPuzzle = () => {
             </svg>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg">
+          <motion.div
+            initial={{ x: 200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1.2,
+              type: 'spring',
+              bounce: 0.5,
+            }}
+            className="bg-gray-50 p-4 rounded-lg"
+          >
             <h2 className="font-semibold text-gray-800 mb-4">Petunjuk</h2>
             <p className="text-sm text-gray-600 mb-4">Tandai dengan menyilang kata di bawah ini mengenai istilah yang ada pada materi sifat dan perubahan wujud benda!</p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -208,7 +239,7 @@ const WordSearchPuzzle = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <ButtonNextPrev onClick={() => router.push('/menu/game/baskets')} />

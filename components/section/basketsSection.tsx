@@ -12,6 +12,7 @@ import { motion } from 'framer-motion';
 import { toast } from '@/hooks/use-toast';
 import { ButtonNextPrev } from '@/components/button-next-prev';
 import { useRouter } from 'next/navigation';
+import { gameSounds } from '@/lib/utils';
 
 const BasketsSection = () => {
   const router = useRouter();
@@ -23,6 +24,7 @@ const BasketsSection = () => {
     if (!item) return;
 
     if (item.type === basketType) {
+      gameSounds?.playCorrect();
       // Remove item from available items
       setItems(items.filter((i) => i.id !== itemId));
 
@@ -45,6 +47,7 @@ const BasketsSection = () => {
         variant: 'success',
       });
     } else {
+      gameSounds?.playWrong();
       toast({
         title: 'Coba lagi!',
         description: `${item.name} bukan benda ${basketType.toLowerCase()}`,

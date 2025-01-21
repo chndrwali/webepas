@@ -54,7 +54,8 @@ const MenuSection = () => {
         }}
         className="fixed bottom-0 left-4"
       >
-        <Image src="/icon/zizah-2.png" alt="" width={200} height={100} />
+        <Image src="/icon/zizah-2.png" alt="" className="hidden md:block" width={200} height={100} />
+        <Image src="/icon/zizah-2.png" alt="" className="block md:hidden" width={150} height={70} />
       </motion.div>
       <div className="grid grid-cols-2 gap-4 md:hidden">
         <motion.div custom={1} variants={carVariants} initial="hidden" animate="visible" whileHover={{ y: -10 }} className="flex items-center justify-center">

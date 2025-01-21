@@ -3,6 +3,7 @@
 import { useConfirm } from '@/hooks/use-confirm';
 import { toast } from '@/hooks/use-toast';
 import { quizQuestions } from '@/lib/constant';
+import { gameSounds } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

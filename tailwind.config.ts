@@ -86,6 +86,8 @@ export default {
         mobile_padat_2: "url('/materi/padat/background-mobile-2.png')",
         mobile_padat_3: "url('/materi/padat/background-mobile-3.png')",
         mobile_padat_4: "url('/materi/padat/background-mobile-4.png')",
+        desktop_example_padat: "url('/materi/padat/example/background.png')",
+        mobile_example_padat: "url('/materi/padat/example/background.png')",
       },
     },
   },

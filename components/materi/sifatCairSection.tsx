@@ -8,11 +8,11 @@ import { ButtonNextPrev } from '@/components/button-next-prev';
 import Header from '@/components/header';
 import { SafeUser } from '@/types';
 
-const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
+const SifatCairSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const router = useRouter();
 
-  const totalSteps = 8;
+  const totalSteps = 9;
   const handleNext = () => {
     if (currentStep < totalSteps) {
       setCurrentStep((prevStep) => prevStep + 1);
@@ -30,20 +30,22 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
       className={`flex min-h-screen flex-1 flex-col 
     ${
       currentStep === 1
-        ? 'bg-mobile_padat_1 md:bg-desktop_padat_1'
+        ? 'bg-mobile_cair_1 md:bg-desktop_cair_1'
         : currentStep === 2
-        ? 'bg-mobile_padat_2 md:bg-desktop_padat_2'
+        ? 'bg-mobile md:bg-desktop'
         : currentStep === 3
-        ? 'bg-mobile_padat_3 md:bg-desktop_padat_3'
+        ? 'bg-mobile_cair_2 md:bg-desktop_cair_2'
         : currentStep === 4
         ? 'bg-mobile md:bg-desktop'
         : currentStep === 5
-        ? 'bg-mobile md:bg-desktop'
+        ? 'bg-mobile_cair_3 md:bg-desktop_cair_3'
         : currentStep === 6
-        ? 'bg-mobile md:bg-desktop'
+        ? 'bg-mobile_cair_4 md:bg-desktop_cair_4'
         : currentStep === 7
-        ? 'bg-mobile md:bg-desktop'
-        : 'bg-mobile_padat_4 md:bg-desktop_padat_4'
+        ? 'bg-mobile_cair_5 md:bg-desktop_cair_5'
+        : currentStep === 8
+        ? 'bg-mobile_cair_4 md:bg-desktop_cair_4'
+        : 'bg-mobile md:bg-desktop'
     }
      bg-cover bg-center bg-no-repeat px-5 xs:px-10 md:px-16`}
     >
@@ -61,7 +63,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                   bounce: 0.5,
                 }}
               >
-                <Image src="/materi/padat/title-wujud.png" alt="Logo" width={300} height={180} />
+                <Image src="/materi/cair/title-cair.png" alt="Logo" width={300} height={180} />
               </motion.div>
               {currentStep === 1 && (
                 <>
@@ -77,18 +79,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     <Image src="/materi/padat/desc-1.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className="hidden md:block fixed right-8"
-                    initial={{ x: -300, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{
-                      duration: 1,
-                      delay: 1.7,
-                    }}
-                  >
-                    <Image src="/materi/padat/pertanyaan.png" alt="" width={250} height={100} />
-                  </motion.div>
-                  <motion.div
-                    className=" fixed bottom-0 right-8"
+                    className="hidden md:block fixed left-8"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -96,7 +87,18 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       delay: 1.7,
                     }}
                   >
-                    <Image src="/materi/padat/zizah-2.png" alt="" width={280} height={100} />
+                    <Image src="/materi/cair/pertanyaan-1.png" alt="" width={250} height={100} />
+                  </motion.div>
+                  <motion.div
+                    className=" fixed bottom-0 left-8"
+                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.7,
+                    }}
+                  >
+                    <Image src="/materi/cair/zizah-2.png" alt="" width={280} height={100} />
                   </motion.div>
                 </>
               )}
@@ -111,10 +113,10 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-2.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-2.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 right-8"
+                    className="hidden md:block fixed left-8"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -122,7 +124,29 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       delay: 1.7,
                     }}
                   >
-                    <Image src="/materi/padat/zizah-3.png" alt="" width={280} height={100} />
+                    <Image src="/materi/cair/pertanyaan-2.png" alt="" width={250} height={100} />
+                  </motion.div>
+                  <motion.div
+                    className=" fixed bottom-0 z-10 left-8"
+                    initial={{ x: 300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.7,
+                    }}
+                  >
+                    <Image src="/materi/cair/zizah-3.png" alt="" width={280} height={100} />
+                  </motion.div>
+                  <motion.div
+                    className=" fixed bottom-0 right-0"
+                    initial={{ x: 300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.7,
+                    }}
+                  >
+                    <Image src="/materi/cair/gelas.png" alt="" width={280} height={100} />
                   </motion.div>
                 </>
               )}
@@ -137,10 +161,10 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-3.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-3.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-[300px] right-8"
+                    className=" fixed bottom-0 z-10 left-8"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -148,32 +172,8 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       delay: 1.7,
                     }}
                   >
-                    <Image src="/materi/padat/pertanyaan-1.png" alt="" width={200} height={100} />
+                    <Image src="/materi/cair/zizah-4.png" alt="" width={280} height={100} />
                   </motion.div>
-                  <div className="flex items-center justify-between">
-                    <motion.div
-                      initial={{ x: -300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.1,
-                      }}
-                      className="fixed bottom-0 left-4 "
-                    >
-                      <Image src="/materi/padat/main-2.png" alt="" width={300} height={100} className="hidden md:block mb-8" />
-                    </motion.div>
-                    <motion.div
-                      className="fixed bottom-0 right-8"
-                      initial={{ x: 300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.7,
-                      }}
-                    >
-                      <Image src="/materi/padat/zizah-4.png" alt="" width={300} height={100} />
-                    </motion.div>
-                  </div>
                 </>
               )}
               {currentStep === 4 && (
@@ -187,7 +187,18 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-4.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-4.png" alt="" width={500} height={300} />
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.1,
+                    }}
+                    className="fixed left-0 "
+                  >
+                    <Image src="/materi/cair/pertanyaan-3.png" alt="" width={200} height={100} className="hidden md:block" />
                   </motion.div>
                   <div className="flex items-center justify-between">
                     <motion.div
@@ -197,23 +208,13 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                         duration: 1,
                         delay: 1.1,
                       }}
-                      className="fixed bottom-0 left-0 "
+                      className="fixed bottom-0 left-0 z-10 "
                     >
-                      <Image src="/materi/padat/pohon-2.png" alt="" width={300} height={100} className="" />
+                      <Image src="/materi/cair/zizah-5.png" alt="" width={300} height={100} className="" />
                     </motion.div>
+
                     <motion.div
-                      initial={{ x: -300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.1,
-                      }}
-                      className="fixed bottom-0 left-[200px] "
-                    >
-                      <Image src="/materi/padat/kursi.png" alt="" width={100} height={100} className="" />
-                    </motion.div>
-                    <motion.div
-                      className="fixed bottom-0 right-8"
+                      className="fixed bottom-0 right-0"
                       initial={{ x: 300, opacity: 0 }}
                       animate={{ x: 0, opacity: 1 }}
                       transition={{
@@ -221,7 +222,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                         delay: 1.7,
                       }}
                     >
-                      <Image src="/materi/padat/zizah-5.png" alt="" width={300} height={100} />
+                      <Image src="/materi/cair/main-4.png" alt="" width={300} height={100} />
                     </motion.div>
                   </div>
                 </>
@@ -237,8 +238,20 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-5.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-5.png" alt="" width={500} height={300} />
                   </motion.div>
+                  <motion.div
+                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.1,
+                    }}
+                    className="fixed top-[100px] left-0 "
+                  >
+                    <Image src="/materi/cair/pertanyaan-4.png" alt="" width={200} height={100} className="hidden md:block" />
+                  </motion.div>
+
                   <div className="flex items-center justify-between">
                     <motion.div
                       initial={{ x: -300, opacity: 0 }}
@@ -249,18 +262,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       }}
                       className="fixed bottom-0 left-0 "
                     >
-                      <Image src="/materi/padat/pohon-3.png" alt="" width={300} height={100} className="hidden md:block mb-8" />
-                    </motion.div>
-                    <motion.div
-                      className="fixed bottom-0 right-8"
-                      initial={{ x: 300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.7,
-                      }}
-                    >
-                      <Image src="/materi/padat/zizah-6.png" alt="" width={300} height={100} />
+                      <Image src="/materi/cair/zizah-6.png" alt="" width={300} height={100} className="hidden md:block mb-8" />
                     </motion.div>
                   </div>
                 </>
@@ -276,7 +278,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-6.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-6.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
                     initial={{ x: -300, opacity: 0 }}
@@ -287,7 +289,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="hidden md:block fixed left-0 "
                   >
-                    <Image src="/materi/padat/matahari.png" alt="" width={300} height={100} className="hidden md:block mb-8" />
+                    <Image src="/materi/cair/pertanyaan-5.png" alt="" width={200} height={100} className="hidden md:block mb-8" />
                   </motion.div>
                   <div className="flex items-center justify-between">
                     <motion.div
@@ -299,18 +301,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       }}
                       className="fixed bottom-0 left-0 "
                     >
-                      <Image src="/materi/padat/es.png" alt="" width={300} height={100} className="mb-8" />
-                    </motion.div>
-                    <motion.div
-                      className="fixed bottom-0 right-8"
-                      initial={{ x: 300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.7,
-                      }}
-                    >
-                      <Image src="/materi/padat/zizah-7.png" alt="" width={300} height={100} />
+                      <Image src="/materi/cair/zizah-7.png" alt="" width={300} height={100} className="mb-8" />
                     </motion.div>
                   </div>
                 </>
@@ -326,7 +317,18 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-7.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-7.png" alt="" width={500} height={300} />
+                  </motion.div>
+                  <motion.div
+                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.1,
+                    }}
+                    className="hidden md:block fixed left-0 "
+                  >
+                    <Image src="/materi/cair/pertanyaan-6.png" alt="" width={200} height={100} className="hidden md:block mb-8" />
                   </motion.div>
                   <div className="flex items-center justify-between">
                     <motion.div
@@ -338,18 +340,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       }}
                       className="fixed bottom-0 left-0 "
                     >
-                      <Image src="/materi/padat/left.png" alt="" width={300} height={100} className="mb-8" />
-                    </motion.div>
-                    <motion.div
-                      className="fixed bottom-0 right-8"
-                      initial={{ x: 300, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.7,
-                      }}
-                    >
-                      <Image src="/materi/padat/zizah-8.png" alt="" width={300} height={100} />
+                      <Image src="/materi/cair/zizah-8.png" alt="" width={300} height={100} className="mb-8" />
                     </motion.div>
                   </div>
                 </>
@@ -365,7 +356,35 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                     }}
                     className="mt-10"
                   >
-                    <Image src="/materi/padat/desc-8.png" alt="" width={500} height={300} />
+                    <Image src="/materi/cair/desc-8.png" alt="" width={500} height={300} />
+                  </motion.div>
+                  <div className="flex items-center justify-between">
+                    <motion.div
+                      initial={{ x: -300, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 1.1,
+                      }}
+                      className="fixed bottom-0 left-0 "
+                    >
+                      <Image src="/materi/cair/zizah-9.png" alt="" width={300} height={100} className="mb-8" />
+                    </motion.div>
+                  </div>
+                </>
+              )}
+              {currentStep === 9 && (
+                <>
+                  <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.5,
+                    }}
+                    className="mt-10"
+                  >
+                    <Image src="/materi/cair/desc-9.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
                     className={`-mt-6 z-10`}
@@ -402,7 +421,7 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                       }}
                       className="fixed bottom-0 left-0 "
                     >
-                      <Image src="/materi/padat/main-3.png" alt="" width={300} height={100} className="mb-8" />
+                      <Image src="/materi/cair/zizah-10.png" alt="" width={300} height={100} className="mb-8" />
                     </motion.div>
                     <motion.div
                       className="fixed bottom-0 right-8"
@@ -413,13 +432,13 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                         delay: 1.7,
                       }}
                     >
-                      <Image src="/materi/padat/zizah-9.png" alt="" width={300} height={100} />
+                      <Image src="/materi/cair/right-2.png" alt="" width={300} height={100} />
                     </motion.div>
                   </div>
                 </>
               )}
             </div>
-            {currentStep === 8 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+            {currentStep === 9 ? <></> : <ButtonNextPrev onClick={handleNext} />}
           </>
         </div>
       </div>
@@ -427,4 +446,4 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
   );
 };
 
-export default WujudPadatSection;
+export default SifatCairSection;

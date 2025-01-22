@@ -54,7 +54,7 @@ const DescCairSection = () => {
               delay: 1.1,
             }}
           >
-            <Image src="/materi/cair/zizah-1.png" alt="" width={200} height={100} className="mb-0 md:mb-8" />
+            <Image src="/materi/cair/zizah-1.png" alt="" width={300} height={100} className="mb-0 md:mb-8" />
           </motion.div>
         </div>
       </div>

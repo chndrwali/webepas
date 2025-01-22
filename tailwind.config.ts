@@ -90,6 +90,8 @@ export default {
         mobile_example_padat: "url('/materi/padat/example/background-mobile.png')",
         desktop_macam_perubahan: "url('/perubahan/macam/background.png')",
         mobile_macam_perubahan: "url('/perubahan/macam/background-mobile.png')",
+        desktop_last: "url('/perubahan/contoh/background.png')",
+        mobile_last: "url('/perubahan/contoh/background-mobile.png')",
       },
     },
   },

@@ -203,7 +203,8 @@ const MusicSection = () => {
                   delay: 1.1,
                 }}
               >
-                <Image src="/icon/zizah-music-1.png" alt="" width={250} height={100} className="mb-8" />
+                <Image src="/icon/zizah-music-1.png" alt="" width={250} height={100} className="hidden md:block mb-8" />
+                <Image src="/icon/zizah-music-1.png" alt="" width={180} height={100} className="block md:hidden" />
               </motion.div>
             </div>
             <motion.div
@@ -311,7 +312,6 @@ const MusicSection = () => {
         </>
       )}
 
-      {currentStep === 2 && <ButtonNextPrev isLeft onClick={handlePrev} />}
       {currentStep === 2 ? <></> : <ButtonNextPrev onClick={handleNext} />}
     </>
   );

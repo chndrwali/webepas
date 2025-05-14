@@ -216,7 +216,7 @@ const SifatGasSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
                         delay: 1.7,
                       }}
                     >
-                      <Image src="/materi/gas/left-2.png" alt="" width={150} height={100} />
+                      <Image src="/materi/gas/left-2.png" alt="" width={400} height={200} />
                     </motion.div>
                   </div>
                 </>

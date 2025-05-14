@@ -170,6 +170,17 @@ const ExamplePerubahanSection = ({ currentUser }: { currentUser: SafeUser | null
                       <Image src="/perubahan/contoh/right-1.png" alt="" width={300} height={300} />
                     </motion.div>
                   </div>
+                  <motion.div
+                    initial={{ x: -300, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      duration: 1,
+                      delay: 1.1,
+                    }}
+                    className="fixed left-4 bottom-0"
+                  >
+                    <Image src="/perubahan/contoh/left-zizah-0.png" alt="" width={250} height={100} className="mb-8" />
+                  </motion.div>
                 </>
               )}
               {currentStep === 4 && (

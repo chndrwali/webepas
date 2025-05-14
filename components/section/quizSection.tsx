@@ -94,7 +94,7 @@ const QuizSection = () => {
             <Image src="/icon/quiz-text.png" alt="" width={150} height={100} />
           </motion.div>
           <div className="bg-white shadow-md p-8 rounded-md w-[90%] max-w-md">
-            <h2 className="text-xl font-semibold mb-4 text-center">Isi Identitas Dulu ya!</h2>
+            <h2 className="text-xl font-semibold mb-4 text-center">Isi Identitas Dibawah ini!</h2>
             <form
               onSubmit={(e) => {
                 e.preventDefault();

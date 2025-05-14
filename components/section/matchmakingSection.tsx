@@ -8,6 +8,7 @@ import { Process, FeedbackState, MatchedPairs } from '@/types';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
+import { ButtonNextPrev } from '../button-next-prev';
 
 const processes: Process[] = [
   { name: 'Menyublim', image: '/matchmaking/menyublim.png' },
@@ -140,6 +141,7 @@ const MatchMakingSection = () => {
           </div>
         </div>
       </div>
+      <ButtonNextPrev onClick={() => router.back()} isLeft />
       <motion.div
         className={`fixed bottom-4 z-10  right-4`}
         initial={{ opacity: 0, x: 50 }}

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ButtonNextPrev } from '@/components/button-next-prev';
 import { useRouter } from 'next/navigation';
+import { MusicToggle } from '../music-toggle';
 
 const DoaSection = () => {
   const router = useRouter();
@@ -29,8 +30,10 @@ const DoaSection = () => {
             duration: 0.8,
             delay: 0.5,
           }}
+          className="relative"
         >
           <Image src="/icon/doa.png" alt="" width={500} height={300} />
+          <MusicToggle audioSrc="/music/doa.mp3" />
         </motion.div>
       </div>
       <div className="flex items-center justify-between">
@@ -69,6 +72,7 @@ const DoaSection = () => {
           <Image src="/icon/zizah-1.png" alt="" width={240} height={100} />
         </motion.div>
       </div>
+      <ButtonNextPrev onClick={() => router.back()} isLeft />
       <ButtonNextPrev onClick={() => router.push('/menu')} />
     </>
   );

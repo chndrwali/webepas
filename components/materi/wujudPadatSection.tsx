@@ -21,9 +21,13 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
     }
   };
 
-  // const handlePrev = () => {
-  //   setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
-  // };
+  const handlePrev = () => {
+    if (currentStep === 1) {
+      router.back();
+    } else {
+      setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
+    }
+  };
 
   return (
     <main
@@ -419,7 +423,14 @@ const WujudPadatSection = ({ currentUser }: { currentUser: SafeUser | null }) =>
                 </>
               )}
             </div>
-            {currentStep === 8 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+            {currentStep === 8 ? (
+              <ButtonNextPrev onClick={handlePrev} isLeft />
+            ) : (
+              <>
+                <ButtonNextPrev onClick={handlePrev} isLeft />
+                <ButtonNextPrev onClick={handleNext} />
+              </>
+            )}
           </>
         </div>
       </div>

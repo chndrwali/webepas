@@ -23,8 +23,8 @@ const MusicSection = () => {
     audio2Ref.current = new Audio();
 
     // TODO: Change Music
-    if (audio1Ref.current) audio1Ref.current.src = '/music/bermuara.mp3';
-    if (audio2Ref.current) audio2Ref.current.src = '/music/juicy.mp3';
+    if (audio1Ref.current) audio1Ref.current.src = '/music/lagu1.mp3';
+    if (audio2Ref.current) audio2Ref.current.src = '/music/lagu2.mp3';
 
     // Preload the audio
     audio1Ref.current?.load();
@@ -268,20 +268,6 @@ const MusicSection = () => {
                 {renderAudioControls(2)}
               </div>
             </motion.div>
-            <motion.button
-              className="flex items-center justify-center -mt-4 z-10"
-              whileHover={{
-                scale: 1.1,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{
-                scale: 0.95,
-                transition: { duration: 0.1 },
-              }}
-              onClick={handleNext}
-            >
-              <Image src="/icon/home.png" alt="" width={60} height={50} />
-            </motion.button>
           </div>
 
           <div className="flex items-center justify-between">
@@ -312,7 +298,27 @@ const MusicSection = () => {
         </>
       )}
 
-      {currentStep === 2 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+      {currentStep === 2 ? (
+        <>
+          <ButtonNextPrev onClick={handlePrev} isLeft />
+          <motion.button
+            className="fixed bottom-4 z-10 right-4"
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{
+              scale: 0.95,
+              transition: { duration: 0.1 },
+            }}
+            onClick={handleNext}
+          >
+            <Image src="/icon/home.png" alt="" width={60} height={50} />
+          </motion.button>
+        </>
+      ) : (
+        <ButtonNextPrev onClick={handleNext} />
+      )}
     </>
   );
 };

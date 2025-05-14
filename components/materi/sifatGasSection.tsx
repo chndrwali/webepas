@@ -21,9 +21,13 @@ const SifatGasSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
     }
   };
 
-  // const handlePrev = () => {
-  //   setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
-  // };
+  const handlePrev = () => {
+    if (currentStep === 1) {
+      router.back();
+    } else {
+      setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
+    }
+  };
 
   return (
     <main className={`flex min-h-screen flex-1 flex-col bg-mobile md:bg-desktop bg-cover bg-center bg-no-repeat px-5 xs:px-10 md:px-16`}>
@@ -401,7 +405,14 @@ const SifatGasSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
                 </>
               )}
             </div>
-            {currentStep === 8 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+            {currentStep === 8 ? (
+              <ButtonNextPrev onClick={handlePrev} isLeft />
+            ) : (
+              <>
+                <ButtonNextPrev onClick={handlePrev} isLeft />
+                <ButtonNextPrev onClick={handleNext} />
+              </>
+            )}
           </>
         </div>
       </div>

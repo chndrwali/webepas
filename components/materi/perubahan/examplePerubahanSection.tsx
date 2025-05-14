@@ -21,9 +21,13 @@ const ExamplePerubahanSection = ({ currentUser }: { currentUser: SafeUser | null
     }
   };
 
-  // const handlePrev = () => {
-  //   setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
-  // };
+  const handlePrev = () => {
+    if (currentStep === 1) {
+      router.back();
+    } else {
+      setCurrentStep((prevStep) => Math.max(prevStep - 1, 1));
+    }
+  };
 
   return (
     <main
@@ -347,7 +351,14 @@ const ExamplePerubahanSection = ({ currentUser }: { currentUser: SafeUser | null
                 </>
               )}
             </div>
-            {currentStep === 6 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+            {currentStep === 6 ? (
+              <ButtonNextPrev onClick={handlePrev} isLeft />
+            ) : (
+              <>
+                <ButtonNextPrev onClick={handlePrev} isLeft />
+                <ButtonNextPrev onClick={handleNext} />
+              </>
+            )}
           </>
         </div>
       </div>

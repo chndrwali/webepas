@@ -165,7 +165,7 @@ const WordSearchPuzzle = () => {
           }}
           className="text-3xl font-bold text-gray-800 mb-6 text-center"
         >
-          Silang Kata
+          Mencari Kata
         </motion.h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -242,6 +242,7 @@ const WordSearchPuzzle = () => {
           </motion.div>
         </div>
       </div>
+      <ButtonNextPrev onClick={() => router.back()} isLeft />
       <ButtonNextPrev onClick={() => router.push('/menu/game/baskets')} />
     </div>
   );

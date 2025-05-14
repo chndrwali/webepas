@@ -168,7 +168,6 @@ export const items: Item[] = [
   { id: '2', name: 'Air', imageUrl: '/basket/air.png', type: 'CAIR' },
   { id: '3', name: 'Balon', imageUrl: '/basket/balon.png', type: 'GAS' },
   { id: '4', name: 'Buku', imageUrl: '/basket/buku.png', type: 'PADAT' },
-  { id: '10', name: 'Gas', imageUrl: '/basket/gas.png', type: 'GAS' },
   { id: '5', name: 'Susu', imageUrl: '/basket/susu.png', type: 'CAIR' },
   { id: '6', name: 'Asap', imageUrl: '/basket/uap.png', type: 'GAS' },
   { id: '13', name: 'Saus', imageUrl: '/basket/saus.png', type: 'CAIR' },

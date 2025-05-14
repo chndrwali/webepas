@@ -47,7 +47,7 @@ const DescriptionSection = () => {
                 delay: 0.5,
               }}
             >
-              <Image src="/icon/description.png" alt="" width={500} height={300} />
+              <Image src="/icon/description.png" alt="" width={600} height={300} />
             </motion.div>
           </div>
           <div className="flex items-center justify-between">
@@ -101,7 +101,17 @@ const DescriptionSection = () => {
                   delay: 0.5,
                 }}
               >
-                <Image src="/icon/identity-1.png" alt="" width={250} height={100} />
+                <div className="space-y-3 max-w-[300px]">
+                  <p className="text-lg font-bold text-teal-500 bg-white px-4 rounded-md w-fit">
+                    Mata Pelajaran: <span className="text-gray-800 font-medium">IPAS</span>
+                  </p>
+
+                  <p className="text-lg font-bold text-teal-500 bg-white px-4 rounded-md w-fit">Capaian Pembelajaran:</p>
+
+                  <div className="bg-white rounded-2xl border border-gray-300 p-4 shadow">
+                    <p className="text-sm text-gray-800 leading-relaxed font-semibold">Peserta didik mengidentifikasi proses perubahan wujud zat dan perubahan bentuk energi dalam kehidupan sehari-hari.</p>
+                  </div>
+                </div>
               </motion.div>
               <motion.div
                 initial={{ y: -50, opacity: 0 }}
@@ -111,7 +121,22 @@ const DescriptionSection = () => {
                   delay: 0.8,
                 }}
               >
-                <Image src="/icon/identity-2.png" alt="" width={600} height={300} />
+                <div className="flex flex-col">
+                  <div className="flex flex-col items-center justify-center gap-y-2 mb-2">
+                    <p className="text-lg font-semibold text-teal-500 bg-white px-4 rounded-md">
+                      Kelas: <span className="text-gray-800">IV</span>
+                    </p>
+                    <p className="text-lg font-semibold text-teal-500 bg-white px-4 rounded-md">Tujuan Pembelajaran:</p>
+                  </div>
+                  <div className="bg-white p-4 rounded-xl shadow-md border border-gray-200 max-w-xl">
+                    <ol className="list-decimal list-inside text-sm font-semibold space-y-1">
+                      <li>Setelah menggunakan media berbasis WEBEPAS, peserta didik mampu memahami perbedaan wujud di lingkungan sekitar dengan tepat.</li>
+                      <li>Setelah menggunakan media berbasis WEBEPAS, peserta didik mampu membandingkan sifat-sifat benda berdasarkan wujudnya dengan tepat.</li>
+                      <li>Setelah menggunakan media berbasis WEBEPAS, peserta didik mampu mengetahui pengertian dan macam-macam perubahan wujud benda dengan tepat.</li>
+                      <li>Setelah menggunakan media berbasis WEBEPAS, peserta didik mampu mengetahui contoh peristiwa perubahan wujud dalam kehidupan sehari-hari dengan tepat.</li>
+                    </ol>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>

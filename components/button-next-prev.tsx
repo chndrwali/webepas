@@ -32,7 +32,7 @@ export const ButtonNextPrev = ({ onClick, isLeft }: Props) => {
           transition: { duration: 0.1 },
         }}
       >
-        <Image src={isLeft ? '/icon/button-prev.png' : '/icon/button-next.png'} alt={isLeft ? 'Previous' : 'Next'} width={44} height={44} />
+        <Image src={isLeft ? '/icon/button-prev.png' : '/icon/button-next.png'} alt={isLeft ? 'Previous' : 'Next'} width={60} height={60} />
       </motion.button>
     </motion.div>
   );

@@ -3,11 +3,11 @@
 import { useConfirm } from '@/hooks/use-confirm';
 import { toast } from '@/hooks/use-toast';
 import { quizQuestions } from '@/lib/constant';
-import { gameSounds } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useRef, useState } from 'react';
+import { ButtonNextPrev } from '../button-next-prev';
 
 const QuizSection = () => {
   const router = useRouter();
@@ -15,6 +15,8 @@ const QuizSection = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [userAnswers, setUserAnswers] = useState<Record<number, string>>({});
   const [finalScore, setFinalScore] = useState<number | null>(null);
+  const [userInfo, setUserInfo] = useState({ name: '', class: '' });
+  const [hasStarted, setHasStarted] = useState(false);
 
   const questionsPerPage = 5;
   const totalPages = Math.ceil(quizQuestions.length / questionsPerPage);
@@ -84,9 +86,68 @@ const QuizSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen ">
+    <div className="flex flex-col items-center justify-center min-h-screen ">
       <ConfirmDialog />
-      {finalScore === null ? (
+      {!hasStarted ? (
+        <>
+          <motion.div initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, type: 'spring', bounce: 0.5 }} className="mb-8">
+            <Image src="/icon/quiz-text.png" alt="" width={150} height={100} />
+          </motion.div>
+          <div className="bg-white shadow-md p-8 rounded-md w-[90%] max-w-md">
+            <h2 className="text-xl font-semibold mb-4 text-center">Isi Identitas Dulu ya!</h2>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!userInfo.name || !userInfo.class) {
+                  toast({
+                    title: 'Lengkapi Data',
+                    description: 'Nama dan Kelas harus diisi.',
+                    variant: 'destructive',
+                  });
+                  return;
+                }
+                setHasStarted(true);
+              }}
+              className="space-y-4"
+            >
+              <div>
+                <label className="block text-sm font-medium">Nama</label>
+                <input type="text" className="w-full border rounded px-3 py-2" value={userInfo.name} onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })} required />
+              </div>
+              <div>
+                <label className="block text-sm font-medium">Kelas</label>
+                <input type="text" className="w-full border rounded px-3 py-2" value={userInfo.class} onChange={(e) => setUserInfo({ ...userInfo, class: e.target.value })} required />
+              </div>
+              <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                Mulai Quiz
+              </button>
+            </form>
+          </div>
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: 1.1,
+            }}
+            className="fixed left-4 bottom-0"
+          >
+            <Image src="/icon/zizah-start-quiz.png" alt="" width={240} height={100} className="mb-8" />
+          </motion.div>
+          <motion.div
+            className="hidden md:block fixed bottom-0 right-4"
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: 1.7,
+            }}
+          >
+            <Image src="/icon/anak-pencil.png" alt="" width={240} height={100} />
+          </motion.div>
+          <ButtonNextPrev onClick={() => router.back()} isLeft />
+        </>
+      ) : finalScore === null ? (
         <>
           <motion.div initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 1.2, type: 'spring', bounce: 0.5 }} className="mb-8">
             <Image src="/icon/title-quiz.png" alt="" width={200} height={200} />
@@ -139,23 +200,66 @@ const QuizSection = () => {
           </div>
         </>
       ) : (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center space-y-4 max-w-3xl w-full text-center">
           <Image src="/icon/score.png" alt="score" width={200} height={80} />
-          <Image src="/icon/number-score.png" alt="score" width={200} height={80} />
+          <div className="relative w-[200px] h-[80px] mx-auto">
+            <Image src="/icon/number-score.png" alt="score" fill className="object-contain" />
+            <p className="absolute inset-0 flex items-center justify-center text-xl font-bold text-black">{finalScore} points</p>
+          </div>
+          <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
+            <p className="text-lg font-semibold text-gray-800">
+              Nama: <span className="font-normal text-gray-600">{userInfo.name}</span>
+            </p>
+            <p className="text-lg font-semibold text-gray-800">
+              Kelas: <span className="font-normal text-gray-600">{userInfo.class}</span>
+            </p>
+          </div>
 
-          <p className="text-2xl font-bold -mt-[65px]">{finalScore} points</p>
-          <motion.button
-            className="mt-12"
-            whileHover={{
-              scale: 1.1,
-              transition: { duration: 0.2 },
+          <div className="w-full text-left bg-white/50 p-4 rounded-md">
+            <h3 className="text-xl font-bold mb-2">Jawaban Kamu:</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[350px] overflow-y-auto pr-2">
+              {quizQuestions.map((q, idx) => (
+                <div key={idx} className="bg-white shadow p-3 rounded">
+                  <p className="font-semibold">
+                    {idx + 1}. {q.question}
+                  </p>
+                  <div className="space-y-2">
+                    <p className="font-semibold">A. {q.optionA}</p>
+                    <p className="font-semibold">B. {q.optionB}</p>
+                    <p className="font-semibold">C. {q.optionC}</p>
+                    <p className="font-semibold">D. {q.optionD}</p>
+                  </div>
+                  <p>
+                    Jawaban: <span className="font-medium text-blue-600">{userAnswers[idx] || '-'}</span>{' '}
+                    {userAnswers[idx] === q.correctAnswer ? <span className="text-green-600 ml-2">✅ Benar</span> : <span className="text-red-500 ml-2">❌ Salah</span>}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: 1.1,
             }}
-            whileTap={{
-              scale: 0.95,
-              transition: { duration: 0.1 },
-            }}
-            onClick={() => router.push('/menu')}
+            className="fixed left-4 bottom-0"
           >
+            <Image src="/icon/zizah-quiz.png" alt="" width={240} height={100} className="mb-8" />
+          </motion.div>
+          <motion.div
+            className="hidden md:block fixed bottom-0 right-4"
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: 1.7,
+            }}
+          >
+            <Image src="/icon/juara.png" alt="" width={240} height={100} />
+          </motion.div>
+          <motion.button className="mt-4" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} onClick={() => router.push('/menu')}>
             <Image src="/icon/home.png" alt="Home" width={80} height={60} />
           </motion.button>
         </div>

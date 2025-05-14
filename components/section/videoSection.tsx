@@ -24,7 +24,7 @@ const VideoSection = () => {
   };
 
   // YouTube video ID
-  const videoIds = ['1MTyCvS05V4', 'EZajJGOMWas']; // Array of video IDs
+  const videoIds = ['SA7yLMlfYVM', 'IxZkp2cgIu8']; // Array of video IDs
 
   return (
     <>
@@ -124,20 +124,6 @@ const VideoSection = () => {
                 />
               </div>
             </motion.div>
-            <motion.button
-              className="flex items-center justify-center -mt-4 z-10"
-              whileHover={{
-                scale: 1.1,
-                transition: { duration: 0.2 },
-              }}
-              whileTap={{
-                scale: 0.95,
-                transition: { duration: 0.1 },
-              }}
-              onClick={handleNext}
-            >
-              <Image src="/icon/home.png" alt="" width={60} height={50} />
-            </motion.button>
           </div>
 
           <div className="flex items-center justify-between">
@@ -168,8 +154,27 @@ const VideoSection = () => {
         </>
       )}
 
-      {currentStep === 2 && <ButtonNextPrev isLeft onClick={handlePrev} />}
-      {currentStep === 2 ? <></> : <ButtonNextPrev onClick={handleNext} />}
+      {currentStep === 2 ? (
+        <>
+          <ButtonNextPrev onClick={handlePrev} isLeft />
+          <motion.button
+            className="fixed bottom-4 z-10 right-4"
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2 },
+            }}
+            whileTap={{
+              scale: 0.95,
+              transition: { duration: 0.1 },
+            }}
+            onClick={handleNext}
+          >
+            <Image src="/icon/home.png" alt="" width={60} height={50} />
+          </motion.button>
+        </>
+      ) : (
+        <ButtonNextPrev onClick={handleNext} />
+      )}
     </>
   );
 };

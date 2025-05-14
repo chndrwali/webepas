@@ -100,6 +100,7 @@ const BasketsSection = () => {
             </motion.div>
           </div>
         </div>
+        <ButtonNextPrev onClick={() => router.back()} isLeft />
         <ButtonNextPrev onClick={() => router.push('/menu/game/matchmaking')} />
       </>
     </DndProvider>

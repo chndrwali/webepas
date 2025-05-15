@@ -6,9 +6,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ButtonNextPrev } from '@/components/button-next-prev';
 import Header from '@/components/header';
-import { SafeUser } from '@/types';
 
-const ExamplePerubahanSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
+const ExamplePerubahanSection = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const router = useRouter();
 
@@ -48,7 +47,7 @@ const ExamplePerubahanSection = ({ currentUser }: { currentUser: SafeUser | null
      bg-cover bg-center bg-no-repeat px-5 xs:px-10 md:px-16`}
     >
       <div className="mx-auto w-full max-w-7xl">
-        <Header currentUser={currentUser} />
+        <Header />
         <div className="mt-4 pb-20">
           <>
             <div className="flex flex-col items-center justify-center ">

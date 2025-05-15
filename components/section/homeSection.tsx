@@ -1,12 +1,19 @@
 'use client';
 
-import { SafeUser } from '@/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
+import { useAudio } from '@/hooks/use-audio';
 
-const HomeSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
+const HomeSection = () => {
   const router = useRouter();
+  const { play } = useAudio();
+
+  const handleLogin = () => {
+    // Play music when login button is clicked
+    play();
+    router.push('/welcome');
+  };
 
   return (
     <>
@@ -37,7 +44,7 @@ const HomeSection = ({ currentUser }: { currentUser: SafeUser | null }) => {
         </motion.p>
         <motion.button
           className="mt-4"
-          onClick={() => router.push(currentUser ? '/welcome' : '/sign-in')}
+          onClick={handleLogin}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{

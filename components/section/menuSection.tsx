@@ -3,8 +3,11 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import { ButtonNextPrev } from '../button-next-prev';
+import { useRouter } from 'next/navigation';
 
 const MenuSection = () => {
+  const router = useRouter();
   const carVariants = {
     hidden: { scale: 0, opacity: 0 },
     visible: (i: number) => ({
@@ -52,7 +55,7 @@ const MenuSection = () => {
           duration: 1,
           delay: 1.1,
         }}
-        className="fixed bottom-0 left-4"
+        className="fixed bottom-0 left-16"
       >
         <Image src="/icon/zizah-2.png" alt="" className="hidden md:block" width={200} height={100} />
         <Image src="/icon/zizah-2.png" alt="" className="block md:hidden" width={150} height={70} />
@@ -125,11 +128,11 @@ const MenuSection = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div custom={5} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10 bg-white px-4 rounded-3xl border border-gray-500 max-w-[180px] shadow-xl">
+          <motion.div custom={5} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10 bg-white px-4 rounded-3xl border border-gray-500 max-w-[130px] shadow-xl">
             <Link href="/instruction">
               <div className="flex relative flex-col items-center hover:scale-105 transition-transform duration-300 ">
-                <Image src="/icon/instruction-icon.png" alt="{item.title}" width={100} height={50} className="mb-4" />
-                <h1 className="-mt-10 text-xl text-end text-emerald-700 font-black">Petunjuk Penggunaan</h1>
+                <Image src="/icon/instruction-icon.png" alt="{item.title}" width={70} height={50} className="mb-4" />
+                <h1 className="-mt-8 text-base text-end text-emerald-700 font-black">Petunjuk Penggunaan</h1>
               </div>
             </Link>
           </motion.div>
@@ -138,6 +141,7 @@ const MenuSection = () => {
           <Image src="/icon/train.png" alt="train" width={800} height={500} />
         </motion.div>
       </div>
+      <ButtonNextPrev isLeft onClick={() => router.push('/doa')} />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SessionProvider } from 'next-auth/react';
 import { auth } from '@/auth';
+import { AudioProvider } from '@/hooks/use-audio';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
 
@@ -30,7 +31,7 @@ export default async function RootLayout({
     <html lang="en">
       <SessionProvider session={session}>
         <body className={`${inter.className} antialiased`}>
-          {children}
+          <AudioProvider>{children}</AudioProvider>
           <Toaster />
         </body>
       </SessionProvider>

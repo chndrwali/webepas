@@ -72,7 +72,7 @@ const DoaSection = () => {
           <Image src="/icon/zizah-1.png" alt="" width={240} height={100} />
         </motion.div>
       </div>
-      <ButtonNextPrev onClick={() => router.back()} isLeft />
+      <ButtonNextPrev onClick={() => router.push('/welcome')} isLeft />
       <ButtonNextPrev onClick={() => router.push('/menu')} />
     </>
   );

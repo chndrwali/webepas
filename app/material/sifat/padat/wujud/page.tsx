@@ -1,9 +1,7 @@
-import { getCurrentUser } from '@/actions/getCurrentUser';
 import WujudPadatSection from '@/components/materi/wujudPadatSection';
 
 const Page = async () => {
-  const currentUser = await getCurrentUser();
-  return <WujudPadatSection currentUser={currentUser} />;
+  return <WujudPadatSection />;
 };
 
 export default Page;

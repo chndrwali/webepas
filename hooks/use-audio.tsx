@@ -27,7 +27,7 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     // Create audio element
-    audioRef.current = new Audio('/music/doa.mp3');
+    audioRef.current = new Audio('/music/backsound.mp3');
 
     // Set up loop
     if (audioRef.current) {

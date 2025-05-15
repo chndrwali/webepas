@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { ButtonNextPrev } from '@/components/button-next-prev';
+import Link from 'next/link';
 
 const WelcomeSection = () => {
   const router = useRouter();
@@ -87,12 +88,21 @@ const WelcomeSection = () => {
               duration: 0.8,
               delay: 1.4,
             }}
+            className="flex items-center"
           >
-            <Image src="/icon/welcome-zizah.png" alt="" width={350} height={100} className="-ml-10 mt-10" />
+            <Image src="/icon/welcome-zizah.png" alt="" width={400} height={70} className="-ml-10 mt-10" />
+            <motion.div className="flex items-center justify-center -mt-[20px] ml-[30px] z-10 bg-white px-4 rounded-3xl border border-gray-500 max-w-[130px] shadow-xl">
+              <Link href="/instruction">
+                <div className="flex relative flex-col items-center hover:scale-105 transition-transform duration-300 ">
+                  <Image src="/icon/instruction-icon.png" alt="{item.title}" width={70} height={50} className="mb-4 -ml-4" />
+                  <h1 className="-mt-8 text-base text-end text-emerald-700 font-black">Petunjuk Penggunaan</h1>
+                </div>
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
         <motion.div
-          className="hidden md:block fixed bottom-0 right-8"
+          className="hidden md:block fixed bottom-0 right-16"
           initial={{ x: 300, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
           transition={{

@@ -67,6 +67,7 @@ export default {
         desktop: "url('/images/background.webp')",
         mobile: "url('/images/background-mobile.webp')",
         desktop_cair: "url('/materi/cair/background.png')",
+        desktop_cair_6: "url('/materi/cair/bg.png')",
         mobile_cair: "url('/materi/cair/background-mobile.png')",
         desktop_cair_1: "url('/materi/cair/background-1.png')",
         mobile_cair_1: "url('/materi/cair/background-mobile-1.png')",

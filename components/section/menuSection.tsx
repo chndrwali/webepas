@@ -128,14 +128,6 @@ const MenuSection = () => {
               </div>
             </Link>
           </motion.div>
-          <motion.div custom={5} variants={carVariants} initial="hidden" animate="visible" className="flex items-center justify-center -mb-[180px] ml-[30px] z-10 bg-white px-4 rounded-3xl border border-gray-500 max-w-[130px] shadow-xl">
-            <Link href="/instruction">
-              <div className="flex relative flex-col items-center hover:scale-105 transition-transform duration-300 ">
-                <Image src="/icon/instruction-icon.png" alt="{item.title}" width={70} height={50} className="mb-4" />
-                <h1 className="-mt-8 text-base text-end text-emerald-700 font-black">Petunjuk Penggunaan</h1>
-              </div>
-            </Link>
-          </motion.div>
         </div>
         <motion.div variants={trainVariants} initial="hidden" animate="visible" className="">
           <Image src="/icon/train.png" alt="train" width={800} height={500} />

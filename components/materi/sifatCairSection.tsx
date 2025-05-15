@@ -47,7 +47,7 @@ const SifatCairSection = () => {
         : currentStep === 7
         ? 'bg-mobile_cair_5 md:bg-desktop_cair_5'
         : currentStep === 8
-        ? 'bg-mobile_cair_4 md:bg-desktop_cair_4'
+        ? 'bg-mobile_cair_4 md:bg-desktop_cair_6'
         : 'bg-mobile md:bg-desktop'
     }
      bg-cover bg-center bg-no-repeat px-5 xs:px-10 md:px-16`}
@@ -93,7 +93,7 @@ const SifatCairSection = () => {
                     <Image src="/materi/cair/pertanyaan-1.png" alt="" width={250} height={100} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 left-8"
+                    className=" fixed bottom-0 left-16"
                     initial={{ x: -300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -119,7 +119,7 @@ const SifatCairSection = () => {
                     <Image src="/materi/cair/desc-2.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className="hidden md:block fixed left-8"
+                    className="hidden md:block fixed left-16"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -130,7 +130,7 @@ const SifatCairSection = () => {
                     <Image src="/materi/cair/pertanyaan-2.png" alt="" width={250} height={100} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 z-10 left-8"
+                    className=" fixed bottom-0 z-10 left-16"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -141,7 +141,7 @@ const SifatCairSection = () => {
                     <Image src="/materi/cair/zizah-3.png" alt="" width={280} height={100} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 right-0"
+                    className=" fixed bottom-0 right-16"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -167,7 +167,7 @@ const SifatCairSection = () => {
                     <Image src="/materi/cair/desc-3.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 z-10 left-8"
+                    className=" fixed bottom-0 z-10 left-16"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -250,7 +250,7 @@ const SifatCairSection = () => {
                       duration: 1,
                       delay: 1.1,
                     }}
-                    className="fixed top-[100px] left-0 "
+                    className="fixed top-[100px] left-4 "
                   >
                     <Image src="/materi/cair/pertanyaan-4.png" alt="" width={200} height={100} className="hidden md:block" />
                   </motion.div>
@@ -263,7 +263,7 @@ const SifatCairSection = () => {
                         duration: 1,
                         delay: 1.1,
                       }}
-                      className="fixed bottom-0 left-0 "
+                      className="fixed bottom-0 left-16 "
                     >
                       <Image src="/materi/cair/zizah-6.png" alt="" width={300} height={100} className="hidden md:block mb-8" />
                     </motion.div>
@@ -290,7 +290,7 @@ const SifatCairSection = () => {
                       duration: 1,
                       delay: 1.1,
                     }}
-                    className="hidden md:block fixed left-0 "
+                    className="hidden md:block fixed left-4 "
                   >
                     <Image src="/materi/cair/pertanyaan-5.png" alt="" width={200} height={100} className="hidden md:block mb-8" />
                   </motion.div>
@@ -302,7 +302,7 @@ const SifatCairSection = () => {
                         duration: 1,
                         delay: 1.1,
                       }}
-                      className="fixed bottom-0 left-0 "
+                      className="fixed bottom-0 left-16 "
                     >
                       <Image src="/materi/cair/zizah-7.png" alt="" width={300} height={100} className="mb-8" />
                     </motion.div>
@@ -329,7 +329,7 @@ const SifatCairSection = () => {
                       duration: 1,
                       delay: 1.1,
                     }}
-                    className="hidden md:block fixed left-0 "
+                    className="hidden md:block fixed left-4 "
                   >
                     <Image src="/materi/cair/pertanyaan-6.png" alt="" width={200} height={100} className="hidden md:block mb-8" />
                   </motion.div>
@@ -341,7 +341,7 @@ const SifatCairSection = () => {
                         duration: 1,
                         delay: 1.1,
                       }}
-                      className="fixed bottom-0 left-0 "
+                      className="fixed bottom-0 left-16 "
                     >
                       <Image src="/materi/cair/zizah-8.png" alt="" width={300} height={100} className="mb-8" />
                     </motion.div>
@@ -372,6 +372,17 @@ const SifatCairSection = () => {
                       className="fixed bottom-0 left-0 "
                     >
                       <Image src="/materi/cair/zizah-9.png" alt="" width={300} height={100} className="mb-8" />
+                    </motion.div>
+                    <motion.div
+                      className="fixed bottom-0 right-16"
+                      initial={{ x: 300, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{
+                        duration: 1,
+                        delay: 1.7,
+                      }}
+                    >
+                      <Image src="/materi/cair/right.png" alt="" width={200} height={100} />
                     </motion.div>
                   </div>
                 </>

@@ -79,7 +79,7 @@ const HomeSection = () => {
               delay: 1.4,
             }}
           >
-            <Image src="/icon/cta-login.png" alt="" width={300} height={100} className="-ml-10 mt-10" />
+            <Image src="/icon/cta-login.png" alt="" width={350} height={100} className="-ml-10 mt-10" />
           </motion.div>
         </div>
         <motion.div

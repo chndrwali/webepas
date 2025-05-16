@@ -156,7 +156,7 @@ const SifatGasSection = () => {
                     <Image src="/materi/gas/desc-3.png" alt="" width={500} height={300} />
                   </motion.div>
                   <motion.div
-                    className=" fixed bottom-0 z-10 right-8"
+                    className=" fixed bottom-0 z-10 right-16"
                     initial={{ x: 300, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -201,9 +201,9 @@ const SifatGasSection = () => {
                         duration: 1,
                         delay: 1.1,
                       }}
-                      className="fixed bottom-0 right-0 z-10 "
+                      className="fixed bottom-0 right-16 z-10 "
                     >
-                      <Image src="/materi/gas/zizah-5.png" alt="" width={300} height={100} className="" />
+                      <Image src="/materi/gas/zizah-4.png" alt="" width={300} height={100} className="" />
                     </motion.div>
 
                     <motion.div

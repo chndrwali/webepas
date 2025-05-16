@@ -92,6 +92,18 @@ const MaterialSection = () => {
             <Image src="/icon/home.png" alt="Home" width={70} height={60} />
           </motion.button>
         </motion.div>
+        <motion.div
+          initial={{ x: -300, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{
+            duration: 1,
+            delay: 1.1,
+          }}
+          className="fixed bottom-0 left-16"
+        >
+          <Image src="/icon/left-menu-materi.png" alt="" className="hidden md:block" width={350} height={200} />
+          <Image src="/icon/left-menu-materi.png" alt="" className="block md:hidden" width={150} height={70} />
+        </motion.div>
       </div>
     </>
   );
